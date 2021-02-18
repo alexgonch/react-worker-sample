@@ -1,6 +1,6 @@
 import LM from "ml-levenberg-marquardt";
 
-function linearFit(m, b) {
+function linearFit([m, b]) {
   return (t) => m * t + b;
 }
 
