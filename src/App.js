@@ -1,7 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+
+import worker from "workerize-loader?inline!./worker/processWorker"; //eslint-disable-line
 
 function App() {
+  let inst = worker();
+
+  const currentUwi = "100030902603W500";
+  const color = "#F00";
+
+  inst.processWorker(currentUwi, color).then((res) => {
+    console.log("Received response from worker", res);
+  });
+
   return (
     <div className="App">
       <header className="App-header">
